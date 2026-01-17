@@ -7,7 +7,7 @@
 
 A lightweight, zero-dependency, and universal TypeScript library to validate Tax IDs (Identification Numbers)
 
-It uses precise mathematical algorithms to verify the integrity of the document number and follow guides of the country goberments
+It uses precise mathematical algorithms to verify the integrity of the document number and follow guides of the country governments
 
 ## Features
 
