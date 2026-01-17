@@ -53,6 +53,24 @@ describe("Test validations of Portugal (PT)", () => {
   });
 });
 
+describe("Test validations of France (FR)", () => {
+  it("should validate a correct SIREN (Google France)", () => {
+    expect(validateIdentification("fr", "443061841")).toBe(true);
+  });
+
+  it("should validate a correct SIRET", () => {
+    expect(validateIdentification("fr", "44306184100047")).toBe(true);
+  });
+
+  it("should fail with incorrect length", () => {
+    expect(validateIdentification("fr", "123")).toBe(false);
+  });
+
+  it("should fail if the Luhn Checksum does not match", () => {
+    expect(validateIdentification("fr", "443061842")).toBe(false);
+  });
+});
+
 describe("Other cases", () => {
   it("should return false for unsupported countries", () => {
     // @ts-ignore

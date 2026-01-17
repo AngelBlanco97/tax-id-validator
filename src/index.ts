@@ -1,9 +1,11 @@
 import { validateES } from "./validators/es";
+import { validateFR } from "./validators/fr";
 import { validatePT } from "./validators/pt";
 
 const validators = {
   es: validateES,
   pt: validatePT,
+  fr: validateFR,
 };
 
 export type CountryCode = keyof typeof validators;

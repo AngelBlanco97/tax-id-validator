@@ -40,17 +40,49 @@ const isNieValid = validateIdentification("es", "X1234567L"); // true
 // 🇵🇹 Portugal (PT)
 // Validates NIF (9 digits with checksum)
 const isNifValid = validateIdentification("pt", "232013969"); // true
+
+// 🇫🇷 France (FR)
+// Validates SIREN (9 digits) or SIRET (14 digits)
+const isSirenValid = validateIdentification("fr", "443061841"); // true
 ```
 
 ## API Reference
 
 ### `validateIdentification(country, value)`
 
-- **country**: `CountryCode` ('es' | 'pt') - The ISO code of the country.
+- **country**: `CountryCode` ('es' | 'pt' | 'fr') - The ISO code of the country.
 - **value**: `string` | `any` - The document string to validate.
 - **Returns**: `boolean` (`true` if valid, `false` otherwise).
 
 _Note: The validator sanitizes the input automatically (removes spaces, hyphens, and is case-insensitive)._
+
+## SUPPORTED COUNTRIES
+
+| Country  | Code | Documents Supported | Algorithm      |
+| -------- | ---- | ------------------- | -------------- |
+| Spain    | es   | DNI, NIE            | Modulo 23      |
+| Portugal | pt   | NIF (Personal)      | Modulo 11      |
+| France   | fr   | SIREN, SIRET        | Luhn Algorithm |
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [1.1.0] - 2026-01-17
+
+### Added 🚀
+
+- **France (FR)** support added.
+- Validation for **SIREN** (9 digits) and **SIRET** (14 digits) using Luhn algorithm.
+
+## [1.0.0] - 2026-01-17
+
+### Added
+
+- Initial release.
+- **Spain (ES)** support: DNI and NIE validation (Modulo 23).
+- **Portugal (PT)** support: NIF validation (Modulo 11).
+- Core logic and TypeScript types.
 
 ## License
 
