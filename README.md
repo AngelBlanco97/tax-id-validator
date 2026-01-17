@@ -1,5 +1,10 @@
 # Tax ID Validator
 
+[![NPM Version](https://img.shields.io/npm/v/validator-tax-id?style=flat-square)](https://www.npmjs.com/package/validator-tax-id)
+[![NPM Downloads](https://img.shields.io/npm/dm/validator-tax-id?style=flat-square)](https://www.npmjs.com/package/validator-tax-id)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/AngelBlanco97/tax-id-validator/blob/main/LICENSE)
+[![CI Tests](https://github.com/AngelBlanco97/tax-id-validator/actions/workflows/publish.yml/badge.svg)](https://github.com/AngelBlanco97/tax-id-validator/actions)
+
 A lightweight, zero-dependency, and universal TypeScript library to validate Tax IDs (Identification Numbers)
 
 It uses precise mathematical algorithms to verify the integrity of the document number and follow guides of the country goberments
