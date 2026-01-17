@@ -1,5 +1,5 @@
 {
-  "name": "tax-id-validator",
+  "name": "validator-tax-id",
   "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.cjs",
