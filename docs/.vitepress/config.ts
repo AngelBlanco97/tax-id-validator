@@ -3,8 +3,8 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Tax ID Validator",
   description: "Validation of tax identifiers for JS/TS projects.",
-  base: "/validator-tax-id/",
-  head: [["link", { rel: "icon", href: "/validator-tax-id/favicon.ico" }]],
+  base: "/tax-id-validator/",
+  head: [["link", { rel: "icon", href: "/tax-id-validator/favicon.ico" }]],
 
   themeConfig: {
     socialLinks: [
