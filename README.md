@@ -19,11 +19,11 @@ It uses precise mathematical algorithms to verify the integrity of the document 
 ## Installation
 
 ```bash
-npm install tax-id-validator
+npm install validator-tax-id
 # or
-yarn add tax-id-validator
+yarn add validator-tax-id
 # or
-pnpm add tax-id-validator
+pnpm add validator-tax-id
 ```
 
 ## Usage
@@ -33,7 +33,7 @@ pnpm add tax-id-validator
 The main function `validateIdentification` takes two arguments: the **country code** (ISO 3166-1 alpha-2) and the **value** to validate.
 
 ```typescript
-import { validateIdentification } from "tax-id-validator";
+import { validateIdentification } from "validator-tax-id";
 
 // 🇪🇸 Spain (ES)
 // Validates DNI (8 digits + letter)
