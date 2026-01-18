@@ -59,7 +59,7 @@ features:
       <span class="name">France</span>
       <div class="docs-list">
         <span class="docs-label">Validates:</span>
-        <span class="docs-value">SIREN, SIRET</span>
+        <span class="docs-value">SIREN, SIRET, NIR</span>
       </div>
     </a>
   </div>

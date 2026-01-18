@@ -63,15 +63,23 @@ _Note: The validator sanitizes the input automatically (removes spaces, hyphens,
 
 ## SUPPORTED COUNTRIES
 
-| Country  | Code | Documents Supported | Algorithm      |
-| -------- | ---- | ------------------- | -------------- |
-| Spain    | es   | DNI, NIE            | Modulo 23      |
-| Portugal | pt   | NIF (Personal)      | Modulo 11      |
-| France   | fr   | SIREN, SIRET        | Luhn Algorithm |
+| Country  | Code | Documents Supported | Algorithm     |
+| -------- | ---- | ------------------- | ------------- |
+| Spain    | es   | DNI, NIE , CIF      | Module 23     |
+| Portugal | pt   | NIF (Personal)      | Module 11     |
+| France   | fr   | SIREN, SIRET, NIR   | Luhn + Mod.97 |
 
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## [1.1.3] - 2026-01-18
+
+### Added 🚀
+
+- **France (FR)** added validation for NIR document and fix SIREN-SIRET algorithm
+- **Spain (ES)** added validation for CIF document.
+- **Portugal (PT)** added validation on prefix in NIF document
 
 ## [1.1.0] - 2026-01-17
 

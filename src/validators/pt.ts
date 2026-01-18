@@ -1,3 +1,5 @@
+const VALID_STARTING_DIGITS = ["1", "2", "3", "5", "6", "8", "9"];
+
 /**
  * Validates a Portuguese NIF (Número de Identificação Fiscal).
  * @param value - The NIF number to validate
@@ -12,6 +14,7 @@ export const validatePT = (value: any): boolean => {
   const nif = value.replace(/\s|-/g, "");
 
   if (!/^[0-9]{9}$/.test(nif)) return false;
+  if (!VALID_STARTING_DIGITS.includes(nif[0])) return false;
 
   const total = nif
     .slice(0, 8)

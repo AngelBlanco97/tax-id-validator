@@ -12,10 +12,6 @@ Many validation libraries come with heavy dependencies (such as `lodash` or comp
 
 We don't just check if “it has 8 numbers and a letter.” We implement each government's official algorithms (Module 11, Luhn Algorithm, etc.) to calculate if the letter or check digit is actually valid.
 
-### 🌳 Tree-Shakable
-
-Only need to validate documents from Spain? Don't burden yourself with the logic for Italy or Germany. The modular structure allows your packager (Webpack, Vite, Rollup) to remove the code you don't use.
-
 ### 💙 Written in TypeScript
 
 Enjoy autocomplete and type safety from the get-go.

@@ -35,9 +35,9 @@ export default defineConfig({
       {
         text: "Supported Countries",
         items: [
+          { text: "France (NIR/SIREN/SIRET)", link: "/countries/fr" },
+          { text: "Portugal (NIF)", link: "/countries/pt" },
           { text: "Spain (DNI/NIE/CIF)", link: "/countries/es" },
-          { text: "Portugal", link: "/countries/pt" },
-          { text: "France", link: "/countries/fr" },
         ],
       },
     ],

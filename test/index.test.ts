@@ -2,7 +2,6 @@ import { describe, it, expect } from "vitest";
 import { validateIdentification } from "../src/index";
 
 describe("Test validations of Spain (ES)", () => {
-  // --- VALID CASES ---
   it("should validate a correct DNI", () => {
     expect(validateIdentification("es", "12345678Z")).toBe(true);
   });
@@ -22,6 +21,26 @@ describe("Test validations of Spain (ES)", () => {
   it("should be case and dash insensitive", () => {
     expect(validateIdentification("es", "12345678-z")).toBe(true);
     expect(validateIdentification("es", "X-1234567-l")).toBe(true);
+  });
+
+  it("should validate a correct CIF (SA)", () => {
+    expect(validateIdentification("es", "A58818501")).toBe(true);
+  });
+
+  it("should validate a correct CIF (SL)", () => {
+    expect(validateIdentification("es", "B99286320")).toBe(true);
+  });
+
+  it("should validate a correct CIF (Public organism)", () => {
+    expect(validateIdentification("es", "P7800001E")).toBe(true);
+  });
+
+  it("should fail a valid CIF with incorrect control digit", () => {
+    expect(validateIdentification("es", "A58818502")).toBe(false);
+  });
+
+  it("should fail a invalid CIF, not valid first letter", () => {
+    expect(validateIdentification("es", "Z1234567L")).toBe(false);
   });
 
   // --- INVALID CASES ---
@@ -71,9 +90,9 @@ describe("Test validations of France (FR)", () => {
   });
 });
 
-describe("Other cases", () => {
+describe("Test validations of other cases", () => {
   it("should return false for unsupported countries", () => {
     // @ts-ignore
-    expect(validateIdentification("fr", "123")).toBe(false);
+    expect(validateIdentification("ge", "123")).toBe(false);
   });
 });

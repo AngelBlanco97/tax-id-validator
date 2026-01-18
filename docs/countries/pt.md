@@ -10,14 +10,20 @@ Validation of tax documents for Portugal.
 
 The NIF is used for both individuals and legal entities.
 
+# Notes
+
+- Validation includes the official modulo 11 checksum.
+- The validator also verifies valid NIF prefixes to avoid false positives.
+- Input may contain spaces or hyphens, which are automatically ignored.
+
 ## Usage
 
 ```typescript
 import { validateIdentification } from "validator-tax-id";
 
-// NIF
-validateIdentification("pt", "123456789");
+// NIF (individual or company)
+validateIdentification("pt", "123456789"); // ✅ true
 
-// Accepts strings with spaces or hyphens (these are automatically cleaned up)
-validateIdentification("pt", "501 964 843"); // ✅ True
+// Accepts spaces or hyphens
+validateIdentification("pt", "501 964 843"); // ✅ true
 ```
