@@ -1,6 +1,6 @@
 {
   "name": "validator-tax-id",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -11,6 +11,21 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./es": {
+      "types": "./dist/validators/es.d.ts",
+      "import": "./dist/validators/es.js",
+      "require": "./dist/validators/es.cjs"
+    },
+    "./fr": {
+      "types": "./dist/validators/fr.d.ts",
+      "import": "./dist/validators/fr.js",
+      "require": "./dist/validators/fr.cjs"
+    },
+    "./pt": {
+      "types": "./dist/validators/pt.d.ts",
+      "import": "./dist/validators/pt.js",
+      "require": "./dist/validators/pt.cjs"
     }
   },
   "files": [

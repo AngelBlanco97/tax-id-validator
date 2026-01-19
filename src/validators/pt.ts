@@ -2,13 +2,13 @@ const VALID_STARTING_DIGITS = ["1", "2", "3", "5", "6", "8", "9"];
 
 /**
  * Validates a Portuguese NIF (Número de Identificação Fiscal).
- * @param value - The NIF number to validate
- * @returns boolean indicating whether the NIF is valid (true) or not (false)
+ * @param value - The NIF number to validate (9 digits)
+ * @returns boolean indicating whether the NIF is valid
  * @author AngelBlanco97
  * @license MIT
  * @documentation https://en.wikipedia.org/wiki/Tax_identification_number#Portugal
  */
-export const validatePT = (value: any): boolean => {
+export const validateNIF = (value: any): boolean => {
   if (typeof value !== "string") return false;
 
   const nif = value.replace(/\s|-/g, "");
@@ -30,3 +30,11 @@ export const validatePT = (value: any): boolean => {
 
   return checkDigit === parseInt(nif[8], 10);
 };
+
+/**
+ * Validates a Portuguese NIF (Número de Identificação Fiscal).
+ * Alias for validateNIF for consistency with other country validators.
+ * @param value - The NIF number to validate
+ * @returns boolean indicating whether the NIF is valid
+ */
+export const validatePT = validateNIF;

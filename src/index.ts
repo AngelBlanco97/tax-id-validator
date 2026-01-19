@@ -1,6 +1,33 @@
-import { validateES } from "./validators/es";
-import { validateFR } from "./validators/fr";
-import { validatePT } from "./validators/pt";
+import {
+  validateES,
+  validateDNI,
+  validateNIE,
+  validateCIF,
+} from "./validators/es";
+import {
+  validateFR,
+  validateNIR,
+  validateSIREN,
+  validateSIRET,
+} from "./validators/fr";
+import { validatePT, validateNIF } from "./validators/pt";
+
+// Re-export all individual validators for direct imports
+export {
+  // Spain
+  validateES,
+  validateDNI,
+  validateNIE,
+  validateCIF,
+  // France
+  validateFR,
+  validateNIR,
+  validateSIREN,
+  validateSIRET,
+  // Portugal
+  validatePT,
+  validateNIF,
+};
 
 const validators = {
   es: validateES,

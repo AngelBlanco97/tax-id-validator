@@ -3,63 +3,60 @@ layout: home
 
 hero:
   name: "Tax ID Validator"
-  text: "Validate identification numbers without pain."
-  tagline: Lightweight, typed, and easy-to-use library for validating tax IDs across multiple countries.
+  text: "Validez les numéros d'identification sans complications."
+  tagline: Bibliothèque légère, typée et facile à utiliser pour valider les IDs fiscaux dans plusieurs pays.
   actions:
     - theme: brand
-      text: Get Started
-      link: /guide/getting-started
+      text: Commencer
+      link: /fr/guide/getting-started
     - theme: alt
-      text: View on GitHub
+      text: Voir sur GitHub
       link: https://github.com/AngelBlanco97/tax-id-validator
 
 features:
   - icon: ⚡
-    title: Zero Dependencies
-    details: No bloat. No lodash. No moment.js. Just pure, optimized validation logic that keeps your bundle tiny.
+    title: Zéro Dépendances
+    details: Pas de bloat. Pas de lodash. Pas de moment.js. Juste une logique de validation pure et optimisée.
   - icon: 🛡️
-    title: TypeScript First
-    details: Built from the ground up with TypeScript. Full type definitions, autocomplete, and compile-time safety.
+    title: TypeScript d'Abord
+    details: Construite depuis le début avec TypeScript. Définitions de types complètes et autocomplétion.
   - icon: 🌍
-    title: Multi-Country Support
-    details: Spain, France, Portugal and growing. Each country uses official government algorithms.
+    title: Multi-Pays
+    details: Espagne, France, Portugal et plus. Chaque pays utilise les algorithmes officiels du gouvernement.
   - icon: 🌳
     title: Tree-Shakeable
-    details: Import only what you need. validateDNI? 1KB. The whole library? Still under 4KB gzipped.
+    details: Importez uniquement ce dont vous avez besoin. validateSIREN? 1KB. Toute la bibliothèque? Moins de 4KB gzippé.
   - icon: 🔒
-    title: Real Validation
-    details: Not just regex patterns. We implement modulo 23, Luhn algorithm, and mod 97 checks.
+    title: Validation Réelle
+    details: Pas seulement des regex. Nous implémentons modulo 23, algorithme de Luhn et vérification mod 97.
   - icon: 🌐
-    title: Universal
-    details: Works everywhere - Node.js, React, Vue, Next.js, Vanilla JS, or even a CDN script tag.
+    title: Universel
+    details: Fonctionne partout - Node.js, React, Vue, Next.js, Vanilla JS ou CDN.
 ---
 
 <div class="badges-wrapper">
   <a href="https://www.npmjs.com/package/validator-tax-id" target="_blank">
-    <img src="https://img.shields.io/npm/v/validator-tax-id?style=flat-square&color=5c6bc0" alt="npm version">
+    <img src="https://img.shields.io/npm/v/validator-tax-id?style=flat-square&color=5c6bc0" alt="version npm">
   </a>
   <a href="https://www.npmjs.com/package/validator-tax-id" target="_blank">
-    <img src="https://img.shields.io/npm/dm/validator-tax-id?style=flat-square&color=4caf50" alt="npm downloads">
+    <img src="https://img.shields.io/npm/dm/validator-tax-id?style=flat-square&color=4caf50" alt="téléchargements npm">
   </a>
   <a href="https://github.com/AngelBlanco97/tax-id-validator" target="_blank">
-    <img src="https://img.shields.io/github/stars/AngelBlanco97/tax-id-validator?style=flat-square&color=ffc107" alt="GitHub stars">
+    <img src="https://img.shields.io/github/stars/AngelBlanco97/tax-id-validator?style=flat-square&color=ffc107" alt="étoiles GitHub">
   </a>
-  <a href="https://github.com/AngelBlanco97/tax-id-validator/blob/main/LICENSE" target="_blank">
-    <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License">
-  </a>
-  <img src="https://img.shields.io/badge/gzip-<4KB-success?style=flat-square" alt="Bundle size">
+  <img src="https://img.shields.io/badge/gzip-<4KB-success?style=flat-square" alt="taille bundle">
 </div>
 
 <div class="quick-start-wrapper">
   <div class="header-section">
-    <h2>⚡ Quick Start</h2>
-    <p>Get up and running in seconds</p>
+    <h2>⚡ Démarrage Rapide</h2>
+    <p>Commencez à l'utiliser en quelques secondes</p>
   </div>
 
   <div class="code-steps">
     <div class="step">
       <span class="step-number">1</span>
-      <span class="step-title">Install</span>
+      <span class="step-title">Installer</span>
       <div class="code-block">
 
 ```bash
@@ -70,13 +67,13 @@ npm install validator-tax-id
     </div>
     <div class="step">
       <span class="step-number">2</span>
-      <span class="step-title">Import & Use</span>
+      <span class="step-title">Importer et Utiliser</span>
       <div class="code-block">
 
 ```typescript
 import { validateDNI, validateSIREN, validateNIF } from "validator-tax-id";
 
-// 🇪🇸 Spain
+// 🇪🇸 Espagne
 validateDNI("12345678Z"); // ✅ true
 
 // 🇫🇷 France
@@ -93,8 +90,8 @@ validateNIF("123456789"); // ✅ true
 
 <div class="countries-wrapper">
   <div class="header-section">
-    <h2>🌍 Supported Countries</h2>
-    <p>Select a country to view specific validation rules and documents.</p>
+    <h2>🌍 Pays Supportés</h2>
+    <p>Sélectionnez un pays pour voir les règles de validation spécifiques.</p>
   </div>
 
   <div class="country-grid">
@@ -103,13 +100,13 @@ validateNIF("123456789"); // ✅ true
         <span class="flag">🇪🇸</span>
         <span class="code">ES</span>
       </div>
-      <span class="name">Spain</span>
+      <span class="name">Espagne</span>
       <div class="docs-list">
-        <span class="docs-label">Validates:</span>
+        <span class="docs-label">Valide:</span>
         <span class="docs-value">DNI, NIE, CIF</span>
       </div>
       <div class="algorithm">
-        <span class="algo-label">Algorithm:</span>
+        <span class="algo-label">Algorithme:</span>
         <span class="algo-value">Modulo 23</span>
       </div>
     </a>
@@ -120,11 +117,11 @@ validateNIF("123456789"); // ✅ true
       </div>
       <span class="name">Portugal</span>
       <div class="docs-list">
-        <span class="docs-label">Validates:</span>
+        <span class="docs-label">Valide:</span>
         <span class="docs-value">NIF</span>
       </div>
       <div class="algorithm">
-        <span class="algo-label">Algorithm:</span>
+        <span class="algo-label">Algorithme:</span>
         <span class="algo-value">Modulo 11</span>
       </div>
     </a>
@@ -135,11 +132,11 @@ validateNIF("123456789"); // ✅ true
       </div>
       <span class="name">France</span>
       <div class="docs-list">
-        <span class="docs-label">Validates:</span>
+        <span class="docs-label">Valide:</span>
         <span class="docs-value">SIREN, SIRET, NIR</span>
       </div>
       <div class="algorithm">
-        <span class="algo-label">Algorithm:</span>
+        <span class="algo-label">Algorithme:</span>
         <span class="algo-value">Luhn + Mod 97</span>
       </div>
     </a>
@@ -148,13 +145,13 @@ validateNIF("123456789"); // ✅ true
         <span class="flag">🇩🇪</span>
         <span class="code">DE</span>
       </div>
-      <span class="name">Germany</span>
+      <span class="name">Allemagne</span>
       <div class="docs-list">
-        <span class="docs-label">Coming Soon:</span>
+        <span class="docs-label">Bientôt:</span>
         <span class="docs-value">Steuernummer</span>
       </div>
       <div class="algorithm">
-        <span class="coming-badge">Coming Soon</span>
+        <span class="coming-badge">Bientôt</span>
       </div>
     </div>
     <div class="country-card coming-soon">
@@ -162,13 +159,13 @@ validateNIF("123456789"); // ✅ true
         <span class="flag">🇮🇹</span>
         <span class="code">IT</span>
       </div>
-      <span class="name">Italy</span>
+      <span class="name">Italie</span>
       <div class="docs-list">
-        <span class="docs-label">Coming Soon:</span>
+        <span class="docs-label">Bientôt:</span>
         <span class="docs-value">Codice Fiscale</span>
       </div>
       <div class="algorithm">
-        <span class="coming-badge">Coming Soon</span>
+        <span class="coming-badge">Bientôt</span>
       </div>
     </div>
     <div class="country-card coming-soon">
@@ -176,13 +173,13 @@ validateNIF("123456789"); // ✅ true
         <span class="flag">🇬🇧</span>
         <span class="code">UK</span>
       </div>
-      <span class="name">United Kingdom</span>
+      <span class="name">Royaume-Uni</span>
       <div class="docs-list">
-        <span class="docs-label">Coming Soon:</span>
+        <span class="docs-label">Bientôt:</span>
         <span class="docs-value">UTR, NIN</span>
       </div>
       <div class="algorithm">
-        <span class="coming-badge">Coming Soon</span>
+        <span class="coming-badge">Bientôt</span>
       </div>
     </div>
     <div class="country-card coming-soon">
@@ -190,53 +187,53 @@ validateNIF("123456789"); // ✅ true
         <span class="flag">🇺🇸</span>
         <span class="code">US</span>
       </div>
-      <span class="name">United States</span>
+      <span class="name">États-Unis</span>
       <div class="docs-list">
-        <span class="docs-label">Coming Soon:</span>
+        <span class="docs-label">Bientôt:</span>
         <span class="docs-value">SSN, EIN, ITIN</span>
       </div>
       <div class="algorithm">
-        <span class="coming-badge">Coming Soon</span>
+        <span class="coming-badge">Bientôt</span>
       </div>
     </div>
   </div>
   
   <div class="contribute">
-    <p>Missing a country? <a href="https://github.com/AngelBlanco97/tax-id-validator/issues" target="_blank">Request it on GitHub →</a></p>
+    <p>Un pays manque? <a href="https://github.com/AngelBlanco97/tax-id-validator/issues" target="_blank">Demandez-le sur GitHub →</a></p>
   </div>
 </div>
 
 <div class="comparison-wrapper">
   <div class="header-section">
-    <h2>🤔 Why Tax ID Validator?</h2>
-    <p>See how we compare to other solutions</p>
+    <h2>🤔 Pourquoi Tax ID Validator?</h2>
+    <p>Voyez comment nous nous comparons aux autres solutions</p>
   </div>
 
   <div class="comparison-table">
     <table>
       <thead>
         <tr>
-          <th>Feature</th>
+          <th>Fonctionnalité</th>
           <th class="highlight">validator-tax-id</th>
-          <th>Regex Only</th>
-          <th>Heavy Libraries</th>
+          <th>Regex Seul</th>
+          <th>Bibliothèques Lourdes</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Real checksum validation</td>
+          <td>Validation réelle du checksum</td>
           <td class="highlight">✅</td>
           <td>❌</td>
           <td>✅</td>
         </tr>
         <tr>
-          <td>Zero dependencies</td>
+          <td>Zéro dépendances</td>
           <td class="highlight">✅</td>
           <td>✅</td>
           <td>❌</td>
         </tr>
         <tr>
-          <td>TypeScript support</td>
+          <td>Support TypeScript</td>
           <td class="highlight">✅</td>
           <td>❌</td>
           <td>⚠️</td>
@@ -248,13 +245,13 @@ validateNIF("123456789"); // ✅ true
           <td>❌</td>
         </tr>
         <tr>
-          <td>Bundle size</td>
+          <td>Taille du bundle</td>
           <td class="highlight">&lt;4KB</td>
           <td>~0KB</td>
           <td>50KB+</td>
         </tr>
         <tr>
-          <td>Individual validators</td>
+          <td>Validateurs individuels</td>
           <td class="highlight">✅</td>
           <td>❌</td>
           <td>❌</td>
@@ -266,14 +263,14 @@ validateNIF("123456789"); // ✅ true
 
 <div class="cta-wrapper">
   <div class="cta-content">
-    <h2>🚀 Ready to validate?</h2>
-    <p>Start using Tax ID Validator in your project today. Zero config, instant results.</p>
+    <h2>🚀 Prêt à valider?</h2>
+    <p>Commencez à utiliser Tax ID Validator dans votre projet aujourd'hui. Sans configuration, résultats instantanés.</p>
     <div class="cta-buttons">
-      <a href="/tax-id-validator/guide/getting-started" class="cta-primary">
-        <span>Get Started</span>
+      <a href="/fr/guide/getting-started" class="cta-primary">
+        <span>Commencer</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
-      <a href="/api/reference" class="cta-secondary">API Reference</a>
+      <a href="/fr/api/reference" class="cta-secondary">Référence API</a>
     </div>
   </div>
 </div>
@@ -284,7 +281,7 @@ validateNIF("123456789"); // ✅ true
   justify-content: center;
   gap: 8px;
   flex-wrap: wrap;
-  margin-top: 4rem;
+  margin-top: -2rem;
   margin-bottom: 2rem;
 }
 
@@ -495,6 +492,7 @@ validateNIF("123456789"); // ✅ true
 }
 
 .comparison-table table {
+  width: 100%;
   max-width: 750px;
   border-collapse: collapse;
   font-size: 0.95rem;

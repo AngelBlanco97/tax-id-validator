@@ -36,19 +36,60 @@ The main function `validateIdentification` takes two arguments: the **country co
 import { validateIdentification } from "validator-tax-id";
 
 // 🇪🇸 Spain (ES)
-// Validates DNI (8 digits + letter)
-const isDniValid = validateIdentification("es", "12345678Z"); // true
-
-// Validates NIE (X/Y/Z + 7 digits + letter)
-const isNieValid = validateIdentification("es", "X1234567L"); // true
+validateIdentification("es", "12345678Z"); // true (DNI)
+validateIdentification("es", "X1234567L"); // true (NIE)
+validateIdentification("es", "A58818501"); // true (CIF)
 
 // 🇵🇹 Portugal (PT)
-// Validates NIF (9 digits with checksum)
-const isNifValid = validateIdentification("pt", "232013969"); // true
+validateIdentification("pt", "232013969"); // true (NIF)
 
 // 🇫🇷 France (FR)
-// Validates SIREN (9 digits) or SIRET (14 digits)
-const isSirenValid = validateIdentification("fr", "443061841"); // true
+validateIdentification("fr", "443061841"); // true (SIREN)
+```
+
+### Individual Validators (Recommended) ✨
+
+For better tree-shaking and direct access, use individual validators:
+
+```typescript
+import {
+  // Spain
+  validateDNI,
+  validateNIE,
+  validateCIF,
+  // France
+  validateSIREN,
+  validateSIRET,
+  validateNIR,
+  // Portugal
+  validateNIF,
+} from "validator-tax-id";
+
+// 🇪🇸 Spain - Direct validation
+validateDNI("12345678Z"); // true
+validateNIE("X1234567L"); // true
+validateCIF("A58818501"); // true
+
+// 🇫🇷 France - Direct validation
+validateSIREN("443061841"); // true
+validateSIRET("44306184100047"); // true
+validateNIR("188057512301180"); // true
+
+// 🇵🇹 Portugal - Direct validation
+validateNIF("123456789"); // true
+```
+
+### Country Auto-detect
+
+If you don't know the specific document type:
+
+```typescript
+import { validateES, validateFR, validatePT } from "validator-tax-id";
+
+validateES("12345678Z"); // true (auto-detects DNI)
+validateES("A58818501"); // true (auto-detects CIF)
+validateFR("443061841"); // true (auto-detects SIREN)
+validatePT("123456789"); // true
 ```
 
 ## API Reference
@@ -72,6 +113,17 @@ _Note: The validator sanitizes the input automatically (removes spaces, hyphens,
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## [1.2.0] - 2026-01-19
+
+### Added 🚀
+
+- **Individual Validators**: New exported functions for direct validation:
+  - Spain: `validateDNI`, `validateNIE`, `validateCIF`, `validateES`
+  - France: `validateSIREN`, `validateSIRET`, `validateNIR`, `validateFR`
+  - Portugal: `validateNIF`, `validatePT`
+- Better tree-shaking support with individual exports
+- Country auto-detect validators (`validateES`, `validateFR`, `validatePT`)
 
 ## [1.1.3] - 2026-01-18
 
