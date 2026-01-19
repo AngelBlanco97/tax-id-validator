@@ -281,7 +281,7 @@ validateNIF("123456789"); // ✅ true
   justify-content: center;
   gap: 8px;
   flex-wrap: wrap;
-  margin-top: -2rem;
+  margin-top: -3rem;
   margin-bottom: 2rem;
 }
 
@@ -492,7 +492,7 @@ validateNIF("123456789"); // ✅ true
 }
 
 .comparison-table table {
-  width: 100%;
+  
   max-width: 750px;
   border-collapse: collapse;
   font-size: 0.95rem;
