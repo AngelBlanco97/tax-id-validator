@@ -2,6 +2,10 @@
   "name": "validator-tax-id",
   "version": "1.2.0",
   "type": "module",
+  "funding": {
+    "type": "paypal",
+    "url": "https://paypal.me/AngelBlanco747"
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

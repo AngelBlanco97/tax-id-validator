@@ -1,13 +1,14 @@
 # Tax ID Validator
 
+A lightweight, zero-dependency, and universal TypeScript library to validate Tax IDs (Identification Numbers)
+
+It uses precise mathematical algorithms to verify the integrity of the document number and follow guides of the country governments
+
 [![NPM Version](https://img.shields.io/npm/v/validator-tax-id?style=flat-square)](https://www.npmjs.com/package/validator-tax-id)
 [![NPM Downloads](https://img.shields.io/npm/dm/validator-tax-id?style=flat-square)](https://www.npmjs.com/package/validator-tax-id)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/AngelBlanco97/tax-id-validator/blob/main/LICENSE)
 [![CI Tests](https://github.com/AngelBlanco97/tax-id-validator/actions/workflows/publish.yml/badge.svg)](https://github.com/AngelBlanco97/tax-id-validator/actions)
-
-A lightweight, zero-dependency, and universal TypeScript library to validate Tax IDs (Identification Numbers)
-
-It uses precise mathematical algorithms to verify the integrity of the document number and follow guides of the country governments
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](https://paypal.me/AngelBlanco747)
 
 ## Features
 
@@ -148,6 +149,12 @@ All notable changes to this project will be documented in this file.
 - **Spain (ES)** support: DNI and NIE validation (Modulo 23).
 - **Portugal (PT)** support: NIF validation (Modulo 11).
 - Core logic and TypeScript types.
+
+## Support
+
+If this library helped you, consider buying me a coffee ☕
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://paypal.me/AngelBlanco747)
 
 ## License
 

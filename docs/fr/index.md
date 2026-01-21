@@ -275,6 +275,18 @@ validateNIF("123456789"); // ✅ true
   </div>
 </div>
 
+<div class="sponsor-wrapper">
+  <div class="sponsor-content">
+    <div class="sponsor-icon">☕</div>
+    <h2>Soutenez le Projet</h2>
+    <p>Si cette bibliothèque vous a fait gagner du temps, pensez à m'offrir un café. Votre soutien aide à maintenir et améliorer ce projet!</p>
+    <a href="https://paypal.me/AngelBlanco747" target="_blank" class="sponsor-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      <span>Faire un don via PayPal</span>
+    </a>
+  </div>
+</div>
+
 <style>
 .badges-wrapper {
   display: flex;
@@ -606,5 +618,67 @@ validateNIF("123456789"); // ✅ true
 .cta-secondary:hover {
   border-color: var(--vp-c-brand);
   color: var(--vp-c-brand);
+}
+
+.sponsor-wrapper {
+  margin: 4rem auto;
+  padding: 0 20px;
+  max-width: 600px;
+}
+
+.sponsor-content {
+  text-align: center;
+  padding: 40px;
+}
+
+.dark .sponsor-content {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.sponsor-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.sponsor-content h2 {
+  border-top: none;
+  font-size: 1.5rem;
+  margin: 0 0 12px 0;
+  color: var(--vp-c-text-1);
+}
+
+.sponsor-content p {
+  color: var(--vp-c-text-2);
+  margin: 0 0 24px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.sponsor-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white !important;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+}
+
+.sponsor-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+}
+
+.sponsor-button svg {
+  transition: transform 0.3s;
+}
+
+.sponsor-button:hover svg {
+  transform: scale(1.1);
 }
 </style>
