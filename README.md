@@ -10,6 +10,14 @@ It uses precise mathematical algorithms to verify the integrity of the document 
 [![CI Tests](https://github.com/AngelBlanco97/tax-id-validator/actions/workflows/publish.yml/badge.svg)](https://github.com/AngelBlanco97/tax-id-validator/actions)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](https://paypal.me/AngelBlanco747)
 
+## Supported Countries
+
+| Country     | Code | Documents Supported | Algorithm     |
+| ----------- | ---- | ------------------- | ------------- |
+| 🇪🇸 Spain    | es   | DNI, NIE , CIF      | Module 23     |
+| 🇵🇹 Portugal | pt   | NIF (Personal)      | Module 11     |
+| 🇫🇷 France   | fr   | SIREN, SIRET, NIR   | Luhn + Mod.97 |
+
 ## Features
 
 - 🚀 **Lightweight:** Zero external dependencies.
@@ -102,14 +110,6 @@ validatePT("123456789"); // true
 - **Returns**: `boolean` (`true` if valid, `false` otherwise).
 
 _Note: The validator sanitizes the input automatically (removes spaces, hyphens, and is case-insensitive)._
-
-## SUPPORTED COUNTRIES
-
-| Country  | Code | Documents Supported | Algorithm     |
-| -------- | ---- | ------------------- | ------------- |
-| Spain    | es   | DNI, NIE , CIF      | Module 23     |
-| Portugal | pt   | NIF (Personal)      | Module 11     |
-| France   | fr   | SIREN, SIRET, NIR   | Luhn + Mod.97 |
 
 # Changelog
 
