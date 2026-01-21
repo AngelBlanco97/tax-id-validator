@@ -1,100 +1,87 @@
+/**
+ * Spanish Tax ID Validators (DNI, NIE, CIF)
+ * @author AngelBlanco97
+ * @license MIT
+ */
+
+import { sanitizeAndMatch } from "../utils/sanitize";
+import { getModulo23Letter, calculateCIFControl } from "../utils/algorithms";
+
+// Constants - Single source of truth
 const DNI_LETTERS = "TRWAGMYFPDXBNJZSQVHLCKE";
-const CIF_CONTROL_LETTERS = "JABCDEFGHI";
 const DNI_REGEX = /^[0-9]{8}[A-Z]$/;
 const NIE_REGEX = /^[XYZ][0-9]{7}[A-Z]$/;
 const CIF_REGEX = /^[ABCDEFGHJNPQRSUVW][0-9]{7}[0-9A-J]$/;
+
+// CIF type categories
+const CIF_LETTER_CONTROL_ONLY = "PQRSNW";
+const CIF_DIGIT_CONTROL_ONLY = "ABEH";
 
 /**
  * Validate Spanish DNI (Documento Nacional de Identidad).
  * @param value - The DNI number to validate (8 digits + letter)
  * @returns boolean indicating whether the DNI is valid
- * @author AngelBlanco97
- * @license MIT
  * @documentation https://www.interior.gob.es/opencms/es/servicios-al-ciudadano/tramites-y-gestiones/dni/calculo-del-digito-de-control-del-nif-nie/
  */
-export const validateDNI = (value: any): boolean => {
-  if (typeof value !== "string") return false;
-  const str = value.toUpperCase().replace(/\s|-/g, "");
+export const validateDNI = (value: unknown): boolean => {
+  const str = sanitizeAndMatch(value, DNI_REGEX);
+  if (!str) return false;
 
-  if (!DNI_REGEX.test(str)) return false;
-
-  const numberPart = str.slice(0, -1);
+  const numberPart = parseInt(str.slice(0, -1), 10);
   const letter = str.slice(-1);
-  const number = parseInt(numberPart, 10);
 
-  return DNI_LETTERS[number % 23] === letter;
+  return getModulo23Letter(numberPart, DNI_LETTERS) === letter;
 };
 
 /**
  * Validate Spanish NIE (Número de Identidad de Extranjero).
  * @param value - The NIE number to validate (X/Y/Z + 7 digits + letter)
  * @returns boolean indicating whether the NIE is valid
- * @author AngelBlanco97
- * @license MIT
  * @documentation https://www.interior.gob.es/opencms/es/servicios-al-ciudadano/tramites-y-gestiones/dni/calculo-del-digito-de-control-del-nif-nie/
  */
-export const validateNIE = (value: any): boolean => {
-  if (typeof value !== "string") return false;
-  const str = value.toUpperCase().replace(/\s|-/g, "");
+export const validateNIE = (value: unknown): boolean => {
+  const str = sanitizeAndMatch(value, NIE_REGEX);
+  if (!str) return false;
 
-  if (!NIE_REGEX.test(str)) return false;
-
-  let numberPart = str.slice(0, -1);
   const letter = str.slice(-1);
+  const prefix = str[0];
+  const numericPrefix = prefix === "X" ? "0" : prefix === "Y" ? "1" : "2";
+  const numberPart = parseInt(numericPrefix + str.slice(1, -1), 10);
 
-  numberPart = numberPart.replace("X", "0").replace("Y", "1").replace("Z", "2");
-
-  const number = parseInt(numberPart, 10);
-  return DNI_LETTERS[number % 23] === letter;
+  return getModulo23Letter(numberPart, DNI_LETTERS) === letter;
 };
 
 /**
  * Validate Spanish CIF (Código de Identificación Fiscal).
  * @param value - The CIF number to validate (letter + 7 digits + control)
  * @returns boolean indicating whether the CIF is valid
- * @author AngelBlanco97
- * @license MIT
  */
-export const validateCIF = (value: any): boolean => {
-  if (typeof value !== "string") return false;
-  const str = value.toUpperCase().replace(/\s|-/g, "");
-
-  if (!CIF_REGEX.test(str)) return false;
+export const validateCIF = (value: unknown): boolean => {
+  const str = sanitizeAndMatch(value, CIF_REGEX);
+  if (!str) return false;
 
   const cifLetter = str[0];
   const numbers = str.slice(1, 8);
   const control = str[8];
+  const { digit, letter } = calculateCIFControl(numbers);
 
-  let sumEven = 0;
-  let sumOdd = 0;
-
-  for (let i = 0; i < numbers.length; i++) {
-    const n = parseInt(numbers[i], 10);
-    if (i % 2 === 0) {
-      const doubled = n * 2;
-      sumOdd += doubled > 9 ? doubled - 9 : doubled;
-    } else {
-      sumEven += n;
-    }
+  // Some CIF types require letter control, others digit, some accept both
+  if (CIF_LETTER_CONTROL_ONLY.includes(cifLetter)) {
+    return control === letter;
+  }
+  if (CIF_DIGIT_CONTROL_ONLY.includes(cifLetter)) {
+    return control === String(digit);
   }
 
-  const total = sumEven + sumOdd;
-  const controlDigit = (10 - (total % 10)) % 10;
-  const controlLetter = CIF_CONTROL_LETTERS[controlDigit];
-
-  if ("PQRSNW".includes(cifLetter)) return control === controlLetter;
-  if ("ABEH".includes(cifLetter)) return control === String(controlDigit);
-
-  return control === String(controlDigit) || control === controlLetter;
+  // Other types accept either
+  return control === String(digit) || control === letter;
 };
 
 /**
  * Validate Spanish DNI/NIE/CIF numbers (auto-detect type).
  * @param value - The identification number to validate
  * @returns boolean indicating whether the identification is valid
- * @author AngelBlanco97
- * @license MIT
  */
-export const validateES = (value: any): boolean => {
+export const validateES = (value: unknown): boolean => {
   return validateDNI(value) || validateNIE(value) || validateCIF(value);
 };

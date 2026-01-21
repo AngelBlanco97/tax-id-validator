@@ -1,3 +1,9 @@
+/**
+ * Tax ID Validator - Main Entry Point
+ * @author AngelBlanco97
+ * @license MIT
+ */
+
 import {
   validateES,
   validateDNI,
@@ -11,6 +17,10 @@ import {
   validateSIRET,
 } from "./validators/fr";
 import { validatePT, validateNIF } from "./validators/pt";
+
+// Re-export types
+export type { CountryCode, TaxIdInput, ValidatorFunction } from "./types";
+export { isValidString, isValidCountryCode } from "./types";
 
 // Re-export all individual validators for direct imports
 export {
@@ -29,25 +39,24 @@ export {
   validateNIF,
 };
 
-const validators = {
+// Import types for internal use
+import type { CountryCode, CountryValidators } from "./types";
+
+const validators: CountryValidators = {
   es: validateES,
   pt: validatePT,
   fr: validateFR,
 };
 
-export type CountryCode = keyof typeof validators;
-
 /**
  * Function to validate identification numbers based on country/type.
- * @param Country - The country code representing the type of identification number (e.g., 'es' for Spain, 'pt' for Portugal)
+ * @param country - The country code representing the type of identification number (e.g., 'es' for Spain, 'pt' for Portugal)
  * @param value - The identification number to validate
  * @returns boolean indicating whether the identification number is valid (true) or not (false)
- * @author AngelBlanco97
- * @license MIT
  */
 export const validateIdentification = (
   country: CountryCode,
-  value: any,
+  value: unknown,
 ): boolean => {
   const validatorFn = validators[country];
 
