@@ -4,6 +4,7 @@ import {
   validateES,
   validateFR,
   validatePT,
+  validateDE,
 } from "../src/index";
 
 // ============================================================
@@ -12,17 +13,18 @@ import {
 describe("Test validations of other cases", () => {
   it("should return false for unsupported countries", () => {
     // @ts-ignore - Testing runtime behavior with invalid country codes
-    expect(validateIdentification("ge", "123")).toBe(false);
-    // @ts-ignore
-    expect(validateIdentification("de", "123456789")).toBe(false);
+    expect(validateIdentification("eu", "123")).toBe(false);
     // @ts-ignore
     expect(validateIdentification("it", "RSSMRA85M01H501Z")).toBe(false);
+    // @ts-ignore
+    expect(validateIdentification("uk", "AB123456C")).toBe(false);
   });
 
   it("should handle empty strings gracefully", () => {
     expect(validateIdentification("es", "")).toBe(false);
     expect(validateIdentification("fr", "")).toBe(false);
     expect(validateIdentification("pt", "")).toBe(false);
+    expect(validateIdentification("de", "")).toBe(false);
   });
 
   it("should handle null/undefined gracefully", () => {
@@ -30,6 +32,8 @@ describe("Test validations of other cases", () => {
     expect(validateIdentification("es", undefined)).toBe(false);
     expect(validateIdentification("fr", null)).toBe(false);
     expect(validateIdentification("pt", null)).toBe(false);
+    expect(validateIdentification("de", null)).toBe(false);
+    expect(validateIdentification("de", undefined)).toBe(false);
   });
 
   it("should handle non-string types gracefully", () => {
@@ -37,6 +41,7 @@ describe("Test validations of other cases", () => {
     expect(validateIdentification("es", {})).toBe(false);
     expect(validateIdentification("es", [])).toBe(false);
     expect(validateIdentification("fr", 443061841)).toBe(false);
+    expect(validateIdentification("de", 86095742719)).toBe(false);
   });
 });
 
@@ -76,6 +81,20 @@ describe("Consistency between validateIdentification and individual validators",
   portugueseTestCases.forEach((testCase) => {
     it(`PT: validateIdentification should match validatePT for "${testCase}"`, () => {
       expect(validateIdentification("pt", testCase)).toBe(validatePT(testCase));
+    });
+  });
+
+  const germanTestCases = [
+    "86095742719", // SteuerIdNr
+    "DE136695976", // VAT Number
+    "136695976", // W-IdNr
+    "invalid",
+    "",
+  ];
+
+  germanTestCases.forEach((testCase) => {
+    it(`DE: validateIdentification should match validateDE for "${testCase}"`, () => {
+      expect(validateIdentification("de", testCase)).toBe(validateDE(testCase));
     });
   });
 });

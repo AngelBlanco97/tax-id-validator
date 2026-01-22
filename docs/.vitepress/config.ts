@@ -36,6 +36,10 @@ export default defineConfig({
           {
             text: "Países Soportados",
             items: [
+              {
+                text: "Alemania (SteuerIdNr/VAT/W-IdNr)",
+                link: "/es/countries/de",
+              },
               { text: "España (DNI/NIE/CIF)", link: "/es/countries/es" },
               { text: "Francia (NIR/SIREN/SIRET)", link: "/es/countries/fr" },
               { text: "Portugal (NIF)", link: "/es/countries/pt" },
@@ -69,6 +73,10 @@ export default defineConfig({
           {
             text: "Países Suportados",
             items: [
+              {
+                text: "Alemanha (SteuerIdNr/VAT/W-IdNr)",
+                link: "/pt/countries/de",
+              },
               { text: "Espanha (DNI/NIE/CIF)", link: "/pt/countries/es" },
               { text: "França (NIR/SIREN/SIRET)", link: "/pt/countries/fr" },
               { text: "Portugal (NIF)", link: "/pt/countries/pt" },
@@ -102,9 +110,53 @@ export default defineConfig({
           {
             text: "Pays Supportés",
             items: [
+              {
+                text: "Allemagne (SteuerIdNr/VAT/W-IdNr)",
+                link: "/fr/countries/de",
+              },
               { text: "Espagne (DNI/NIE/CIF)", link: "/fr/countries/es" },
               { text: "France (NIR/SIREN/SIRET)", link: "/fr/countries/fr" },
               { text: "Portugal (NIF)", link: "/fr/countries/pt" },
+            ],
+          },
+        ],
+      },
+    },
+    de: {
+      label: "Deutsch",
+      lang: "de",
+      link: "/de/",
+      themeConfig: {
+        nav: [
+          { text: "Startseite", link: "/de/" },
+          { text: "Anleitung", link: "/de/guide/getting-started" },
+          { text: "API", link: "/de/api/reference" },
+        ],
+        sidebar: [
+          {
+            text: "Einführung",
+            items: [
+              {
+                text: "Warum diese Bibliothek verwenden?",
+                link: "/de/guide/introduction",
+              },
+              { text: "Installation", link: "/de/guide/getting-started" },
+              { text: "Grundlegende Verwendung", link: "/de/guide/usage" },
+            ],
+          },
+          {
+            text: "Unterstützte Länder",
+            items: [
+              {
+                text: "Deutschland (SteuerIdNr/VAT/W-IdNr)",
+                link: "/de/countries/de",
+              },
+              {
+                text: "Frankreich (NIR/SIREN/SIRET)",
+                link: "/de/countries/fr",
+              },
+              { text: "Portugal (NIF)", link: "/de/countries/pt" },
+              { text: "Spanien (DNI/NIE/CIF)", link: "/de/countries/es" },
             ],
           },
         ],
@@ -149,6 +201,7 @@ export default defineConfig({
         text: "Supported Countries",
         items: [
           { text: "France (NIR/SIREN/SIRET)", link: "/countries/fr" },
+          { text: "Germany (SteuerIdNr/VAT/W-IdNr)", link: "/countries/de" },
           { text: "Portugal (NIF)", link: "/countries/pt" },
           { text: "Spain (DNI/NIE/CIF)", link: "/countries/es" },
         ],

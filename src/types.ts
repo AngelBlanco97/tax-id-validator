@@ -7,7 +7,7 @@
 /**
  * Supported country codes (ISO 3166-1 alpha-2)
  */
-export type CountryCode = "es" | "pt" | "fr";
+export type CountryCode = "es" | "pt" | "fr" | "de";
 
 /**
  * Valid input type for tax ID validation.
@@ -41,12 +41,18 @@ export type FrenchDocumentType = "NIR" | "SIREN" | "SIRET";
 export type PortugueseDocumentType = "NIF";
 
 /**
+ *  German document types
+ */
+export type DEDocumentType = "SteuerIdNr" | "VatNumber" | "Widnr";
+
+/**
  * All document types
  */
 export type DocumentType =
   | SpanishDocumentType
   | FrenchDocumentType
-  | PortugueseDocumentType;
+  | PortugueseDocumentType
+  | DEDocumentType;
 
 /**
  * Type guard to check if value is a non-empty string
@@ -59,5 +65,5 @@ export const isValidString = (value: unknown): value is string => {
  * Type guard to check if country code is valid
  */
 export const isValidCountryCode = (code: unknown): code is CountryCode => {
-  return code === "es" || code === "pt" || code === "fr";
+  return code === "es" || code === "pt" || code === "fr" || code === "de";
 };

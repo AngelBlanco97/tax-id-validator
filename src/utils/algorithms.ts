@@ -101,3 +101,52 @@ export const calculateCIFControl = (
 export const isAllSameDigits = (value: string): boolean => {
   return /^(\d)\1+$/.test(value);
 };
+
+/**
+ * ISO 7064, Modulo 11, 10 algorithm.
+ * Used for German Steuer-IdNr, W-IdNr and VAT (USt-IdNr).
+ * Note: This calculates the expected check digit based on the input body.
+ * @param value - The numeric string body (excluding the check digit)
+ * @returns The calculated check digit (0-9)
+ */
+export const calculateISO7064Mod10_11 = (value: string): number => {
+  let product = 10;
+
+  for (let i = 0; i < value.length; i++) {
+    const digit = parseInt(value[i], 10);
+    const sum = (digit + product) % 10;
+    const nextSum = sum === 0 ? 10 : sum;
+    product = (nextSum * 2) % 11;
+  }
+
+  const checkDigit = 11 - product;
+  return checkDigit === 10 ? 0 : checkDigit;
+};
+
+/**
+ * Validates the specific digit distribution for German Steuer-IdNr.
+ * Rule: Within the first 10 digits, exactly one digit must appear 2 times (or 3 in rare cases),
+ * and others must appear only once.
+ *
+ * @param value - The 10 digit string (excluding check digit)
+ * @returns true if the structure is mathematically valid
+ */
+export const hasSteuerIdNrStructure = (value: string): boolean => {
+  const counts: Record<string, number> = {};
+
+  for (const char of value) {
+    counts[char] = (counts[char] || 0) + 1;
+  }
+
+  const values = Object.values(counts);
+  const countOfTwo = values.filter((v) => v === 2).length;
+  const countOfThree = values.filter((v) => v === 3).length;
+
+  // Standard case: One digit repeats 2 times, others 1 time.
+  if (countOfTwo === 1 && countOfThree === 0) return true;
+
+  // Edge case (Numbers ran out): One digit repeats 3 times, others 1 time.
+  if (countOfThree === 1 && countOfTwo === 0) return true;
+
+  return false;
+};

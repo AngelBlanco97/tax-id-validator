@@ -17,6 +17,12 @@ import {
   validateSIRET,
 } from "./validators/fr";
 import { validatePT, validateNIF } from "./validators/pt";
+import {
+  validateSteuerIdNr,
+  validateVatNumber,
+  validateWidnr,
+  validateDE,
+} from "./validators/ge";
 
 // Re-export types
 export type { CountryCode, TaxIdInput, ValidatorFunction } from "./types";
@@ -37,6 +43,11 @@ export {
   // Portugal
   validatePT,
   validateNIF,
+  // Germany
+  validateSteuerIdNr,
+  validateVatNumber,
+  validateWidnr,
+  validateDE,
 };
 
 // Import types for internal use
@@ -46,6 +57,7 @@ const validators: CountryValidators = {
   es: validateES,
   pt: validatePT,
   fr: validateFR,
+  de: validateDE,
 };
 
 /**

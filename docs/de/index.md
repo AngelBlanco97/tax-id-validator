@@ -3,60 +3,60 @@ layout: home
 
 hero:
   name: "Tax ID Validator"
-  text: "Valide números de identificação sem complicações."
-  tagline: Biblioteca leve, tipada e fácil de usar para validar IDs fiscais em múltiplos países.
+  text: "Identifikationsnummern ohne Komplikationen validieren."
+  tagline: Leichte, typisierte und einfach zu verwendende Bibliothek zur Validierung von Steuer-IDs in mehreren Ländern.
   actions:
     - theme: brand
-      text: Começar
-      link: /pt/guide/getting-started
+      text: Loslegen
+      link: /de/guide/getting-started
     - theme: alt
-      text: Ver no GitHub
+      text: Auf GitHub ansehen
       link: https://github.com/AngelBlanco97/tax-id-validator
 
 features:
   - icon: ⚡
-    title: Zero Dependências
-    details: Sem bloat. Sem lodash. Sem moment.js. Apenas lógica de validação pura e otimizada.
+    title: Keine Abhängigkeiten
+    details: Kein Bloat. Kein lodash. Kein moment.js. Nur reine, optimierte Validierungslogik.
   - icon: 🛡️
-    title: TypeScript Primeiro
-    details: Construída desde o início com TypeScript. Definições de tipos completas e autocomplete.
+    title: TypeScript First
+    details: Von Grund auf mit TypeScript entwickelt. Vollständige Typdefinitionen und Autovervollständigung.
   - icon: 🌍
-    title: Multi-País
-    details: Espanha, França, Portugal, Alemanha e crescendo. Cada país usa algoritmos oficiais do governo.
+    title: Multi-Land
+    details: Spanien, Frankreich, Portugal, Deutschland und wachsend. Jedes Land verwendet offizielle Regierungsalgorithmen.
   - icon: 🌳
     title: Tree-Shakeable
-    details: Importe apenas o que precisar. validateDNI? 1KB. Toda a biblioteca? Menos de 4KB gzipped.
+    details: Importieren Sie nur was Sie brauchen. validateDNI? 1KB. Die ganze Bibliothek? Unter 4KB gzipped.
   - icon: 🔒
-    title: Validação Real
-    details: Não apenas regex. Implementamos módulo 23, algoritmo de Luhn e verificação mod 97.
+    title: Echte Validierung
+    details: Nicht nur Regex. Wir implementieren Modulo 23, Luhn-Algorithmus und Mod 97-Prüfung.
   - icon: 🌐
     title: Universal
-    details: Funciona em todo lado - Node.js, React, Vue, Next.js, Vanilla JS ou CDN.
+    details: Funktioniert überall - Node.js, React, Vue, Next.js, Vanilla JS oder CDN.
 ---
 
 <div class="badges-wrapper">
   <a href="https://www.npmjs.com/package/validator-tax-id" target="_blank">
-    <img src="https://img.shields.io/npm/v/validator-tax-id?style=flat-square&color=5c6bc0" alt="versão npm">
+    <img src="https://img.shields.io/npm/v/validator-tax-id?style=flat-square&color=5c6bc0" alt="npm Version">
   </a>
   <a href="https://www.npmjs.com/package/validator-tax-id" target="_blank">
-    <img src="https://img.shields.io/npm/dm/validator-tax-id?style=flat-square&color=4caf50" alt="downloads npm">
+    <img src="https://img.shields.io/npm/dm/validator-tax-id?style=flat-square&color=4caf50" alt="npm Downloads">
   </a>
   <a href="https://github.com/AngelBlanco97/tax-id-validator" target="_blank">
-    <img src="https://img.shields.io/github/stars/AngelBlanco97/tax-id-validator?style=flat-square&color=ffc107" alt="estrelas GitHub">
+    <img src="https://img.shields.io/github/stars/AngelBlanco97/tax-id-validator?style=flat-square&color=ffc107" alt="GitHub Sterne">
   </a>
-  <img src="https://img.shields.io/badge/gzip-<4KB-success?style=flat-square" alt="tamanho bundle">
+  <img src="https://img.shields.io/badge/gzip-<4KB-success?style=flat-square" alt="Bundle-Größe">
 </div>
 
 <div class="quick-start-wrapper">
   <div class="header-section">
-    <h2>⚡ Início Rápido</h2>
-    <p>Comece a usar em segundos</p>
+    <h2>⚡ Schnellstart</h2>
+    <p>In Sekunden loslegen</p>
   </div>
 
   <div class="code-steps">
     <div class="step">
       <span class="step-number">1</span>
-      <span class="step-title">Instalar</span>
+      <span class="step-title">Installieren</span>
       <div class="code-block">
 
 ```bash
@@ -67,27 +67,23 @@ npm install validator-tax-id
     </div>
     <div class="step">
       <span class="step-number">2</span>
-      <span class="step-title">Importar e Usar</span>
+      <span class="step-title">Importieren & Verwenden</span>
       <div class="code-block">
 
 ```typescript
 import {
   validateDNI,
   validateSIREN,
-  validateNIF,
   validateSteuerIdNr,
 } from "validator-tax-id";
 
-// 🇪🇸 Espanha
+// 🇪🇸 Spanien
 validateDNI("12345678Z"); // ✅ true
 
-// 🇫🇷 França
+// 🇫🇷 Frankreich
 validateSIREN("443061841"); // ✅ true
 
-// 🇵🇹 Portugal
-validateNIF("123456789"); // ✅ true
-
-// 🇩🇪 Alemanha
+// 🇩🇪 Deutschland
 validateSteuerIdNr("86095742719"); // ✅ true
 ```
 
@@ -98,24 +94,39 @@ validateSteuerIdNr("86095742719"); // ✅ true
 
 <div class="countries-wrapper">
   <div class="header-section">
-    <h2>🌍 Países Suportados</h2>
-    <p>Selecione um país para ver as regras de validação específicas.</p>
+    <h2>🌍 Unterstützte Länder</h2>
+    <p>Wählen Sie ein Land, um die spezifischen Validierungsregeln anzuzeigen.</p>
   </div>
 
   <div class="country-grid">
+    <a href="./countries/de" class="country-card">
+      <div class="card-header">
+        <span class="flag">🇩🇪</span>
+        <span class="code">DE</span>
+      </div>
+      <span class="name">Deutschland</span>
+      <div class="docs-list">
+        <span class="docs-label">Validiert:</span>
+        <span class="docs-value">SteuerIdNr, VAT, W-IdNr</span>
+      </div>
+      <div class="algorithm">
+        <span class="algo-label">Algorithmus:</span>
+        <span class="algo-value">ISO 7064 Mod 10,11</span>
+      </div>
+    </a>
     <a href="./countries/es" class="country-card">
       <div class="card-header">
         <span class="flag">🇪🇸</span>
         <span class="code">ES</span>
       </div>
-      <span class="name">Espanha</span>
+      <span class="name">Spanien</span>
       <div class="docs-list">
-        <span class="docs-label">Valida:</span>
+        <span class="docs-label">Validiert:</span>
         <span class="docs-value">DNI, NIE, CIF</span>
       </div>
       <div class="algorithm">
-        <span class="algo-label">Algoritmo:</span>
-        <span class="algo-value">Módulo 23</span>
+        <span class="algo-label">Algorithmus:</span>
+        <span class="algo-value">Modulo 23</span>
       </div>
     </a>
     <a href="./countries/pt" class="country-card">
@@ -125,12 +136,12 @@ validateSteuerIdNr("86095742719"); // ✅ true
       </div>
       <span class="name">Portugal</span>
       <div class="docs-list">
-        <span class="docs-label">Valida:</span>
+        <span class="docs-label">Validiert:</span>
         <span class="docs-value">NIF</span>
       </div>
       <div class="algorithm">
-        <span class="algo-label">Algoritmo:</span>
-        <span class="algo-value">Módulo 11</span>
+        <span class="algo-label">Algorithmus:</span>
+        <span class="algo-value">Modulo 11</span>
       </div>
     </a>
     <a href="./countries/fr" class="country-card">
@@ -138,29 +149,14 @@ validateSteuerIdNr("86095742719"); // ✅ true
         <span class="flag">🇫🇷</span>
         <span class="code">FR</span>
       </div>
-      <span class="name">França</span>
+      <span class="name">Frankreich</span>
       <div class="docs-list">
-        <span class="docs-label">Valida:</span>
+        <span class="docs-label">Validiert:</span>
         <span class="docs-value">SIREN, SIRET, NIR</span>
       </div>
       <div class="algorithm">
-        <span class="algo-label">Algoritmo:</span>
+        <span class="algo-label">Algorithmus:</span>
         <span class="algo-value">Luhn + Mod 97</span>
-      </div>
-    </a>
-    <a href="./countries/de" class="country-card">
-      <div class="card-header">
-        <span class="flag">🇩🇪</span>
-        <span class="code">DE</span>
-      </div>
-      <span class="name">Alemanha</span>
-      <div class="docs-list">
-        <span class="docs-label">Valida:</span>
-        <span class="docs-value">SteuerIdNr, VAT, W-IdNr</span>
-      </div>
-      <div class="algorithm">
-        <span class="algo-label">Algoritmo:</span>
-        <span class="algo-value">ISO 7064 Mod 10,11</span>
       </div>
     </a>
     <div class="country-card coming-soon">
@@ -168,13 +164,13 @@ validateSteuerIdNr("86095742719"); // ✅ true
         <span class="flag">🇮🇹</span>
         <span class="code">IT</span>
       </div>
-      <span class="name">Itália</span>
+      <span class="name">Italien</span>
       <div class="docs-list">
-        <span class="docs-label">Em Breve:</span>
+        <span class="docs-label">Demnächst:</span>
         <span class="docs-value">Codice Fiscale</span>
       </div>
       <div class="algorithm">
-        <span class="coming-badge">Em Breve</span>
+        <span class="coming-badge">Demnächst</span>
       </div>
     </div>
     <div class="country-card coming-soon">
@@ -182,13 +178,13 @@ validateSteuerIdNr("86095742719"); // ✅ true
         <span class="flag">🇬🇧</span>
         <span class="code">UK</span>
       </div>
-      <span class="name">Reino Unido</span>
+      <span class="name">Vereinigtes Königreich</span>
       <div class="docs-list">
-        <span class="docs-label">Em Breve:</span>
+        <span class="docs-label">Demnächst:</span>
         <span class="docs-value">UTR, NIN</span>
       </div>
       <div class="algorithm">
-        <span class="coming-badge">Em Breve</span>
+        <span class="coming-badge">Demnächst</span>
       </div>
     </div>
     <div class="country-card coming-soon">
@@ -196,53 +192,53 @@ validateSteuerIdNr("86095742719"); // ✅ true
         <span class="flag">🇺🇸</span>
         <span class="code">US</span>
       </div>
-      <span class="name">Estados Unidos</span>
+      <span class="name">Vereinigte Staaten</span>
       <div class="docs-list">
-        <span class="docs-label">Em Breve:</span>
+        <span class="docs-label">Demnächst:</span>
         <span class="docs-value">SSN, EIN, ITIN</span>
       </div>
       <div class="algorithm">
-        <span class="coming-badge">Em Breve</span>
+        <span class="coming-badge">Demnächst</span>
       </div>
     </div>
   </div>
   
   <div class="contribute">
-    <p>Falta um país? <a href="https://github.com/AngelBlanco97/tax-id-validator/issues" target="_blank">Solicite no GitHub →</a></p>
+    <p>Fehlt ein Land? <a href="https://github.com/AngelBlanco97/tax-id-validator/issues" target="_blank">Fordern Sie es auf GitHub an →</a></p>
   </div>
 </div>
 
 <div class="comparison-wrapper">
   <div class="header-section">
-    <h2>🤔 Porquê Tax ID Validator?</h2>
-    <p>Veja como nos comparamos com outras soluções</p>
+    <h2>🤔 Warum Tax ID Validator?</h2>
+    <p>Sehen Sie, wie wir uns mit anderen Lösungen vergleichen</p>
   </div>
 
   <div class="comparison-table">
     <table>
       <thead>
         <tr>
-          <th>Funcionalidade</th>
+          <th>Funktion</th>
           <th class="highlight">validator-tax-id</th>
-          <th>Apenas Regex</th>
-          <th>Bibliotecas Pesadas</th>
+          <th>Nur Regex</th>
+          <th>Schwere Bibliotheken</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Validação real de checksum</td>
+          <td>Echte Prüfsummen-Validierung</td>
           <td class="highlight">✅</td>
           <td>❌</td>
           <td>✅</td>
         </tr>
         <tr>
-          <td>Zero dependências</td>
+          <td>Keine Abhängigkeiten</td>
           <td class="highlight">✅</td>
           <td>✅</td>
           <td>❌</td>
         </tr>
         <tr>
-          <td>Suporte TypeScript</td>
+          <td>TypeScript-Unterstützung</td>
           <td class="highlight">✅</td>
           <td>❌</td>
           <td>⚠️</td>
@@ -254,13 +250,13 @@ validateSteuerIdNr("86095742719"); // ✅ true
           <td>❌</td>
         </tr>
         <tr>
-          <td>Tamanho do bundle</td>
+          <td>Bundle-Größe</td>
           <td class="highlight">&lt;4KB</td>
           <td>~0KB</td>
           <td>50KB+</td>
         </tr>
         <tr>
-          <td>Validadores individuais</td>
+          <td>Einzelne Validatoren</td>
           <td class="highlight">✅</td>
           <td>❌</td>
           <td>❌</td>
@@ -272,14 +268,14 @@ validateSteuerIdNr("86095742719"); // ✅ true
 
 <div class="cta-wrapper">
   <div class="cta-content">
-    <h2>🚀 Pronto para validar?</h2>
-    <p>Comece a usar Tax ID Validator no seu projeto hoje. Sem configuração, resultados instantâneos.</p>
+    <h2>🚀 Bereit zum Validieren?</h2>
+    <p>Beginnen Sie noch heute mit Tax ID Validator in Ihrem Projekt. Keine Konfiguration, sofortige Ergebnisse.</p>
     <div class="cta-buttons">
-      <a href="/pt/guide/getting-started" class="cta-primary">
-        <span>Começar</span>
+      <a href="/de/guide/getting-started" class="cta-primary">
+        <span>Loslegen</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
-      <a href="/pt/api/reference" class="cta-secondary">Referência API</a>
+      <a href="/de/api/reference" class="cta-secondary">API-Referenz</a>
     </div>
   </div>
 </div>
@@ -287,11 +283,11 @@ validateSteuerIdNr("86095742719"); // ✅ true
 <div class="sponsor-wrapper">
   <div class="sponsor-content">
     <div class="sponsor-icon">☕</div>
-    <h2>Apoie o Projeto</h2>
-    <p>Se esta biblioteca te poupou tempo, considera pagar-me um café. O teu apoio ajuda a manter e melhorar este projeto!</p>
+    <h2>Unterstützen Sie das Projekt</h2>
+    <p>Wenn Ihnen diese Bibliothek Zeit gespart hat, spendieren Sie mir einen Kaffee. Ihre Unterstützung hilft, dieses Projekt zu pflegen und zu verbessern!</p>
     <a href="https://paypal.me/AngelBlanco747" target="_blank" class="sponsor-button">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-      <span>Doar via PayPal</span>
+      <span>Über PayPal spenden</span>
     </a>
   </div>
 </div>

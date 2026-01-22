@@ -12,11 +12,12 @@ It uses precise mathematical algorithms to verify the integrity of the document 
 
 ## Supported Countries
 
-| Country     | Code | Documents Supported | Algorithm     |
-| ----------- | ---- | ------------------- | ------------- |
-| 🇪🇸 Spain    | es   | DNI, NIE , CIF      | Module 23     |
-| 🇵🇹 Portugal | pt   | NIF (Personal)      | Module 11     |
-| 🇫🇷 France   | fr   | SIREN, SIRET, NIR   | Luhn + Mod.97 |
+| Country     | Code | Documents Supported            | Algorithm          |
+| ----------- | ---- | ------------------------------ | ------------------ |
+| 🇪🇸 Spain    | es   | DNI, NIE, CIF                  | Module 23          |
+| 🇵🇹 Portugal | pt   | NIF (Personal)                 | Module 11          |
+| 🇫🇷 France   | fr   | SIREN, SIRET, NIR              | Luhn + Mod.97      |
+| 🇩🇪 Germany  | de   | SteuerIdNr, VAT Number, W-IdNr | ISO 7064 Mod 10,11 |
 
 ## Features
 
@@ -54,6 +55,10 @@ validateIdentification("pt", "232013969"); // true (NIF)
 
 // 🇫🇷 France (FR)
 validateIdentification("fr", "443061841"); // true (SIREN)
+
+// 🇩🇪 Germany (DE)
+validateIdentification("de", "86095742719"); // true (SteuerIdNr)
+validateIdentification("de", "DE136695976"); // true (VAT Number)
 ```
 
 ### Individual Validators (Recommended) ✨
@@ -72,6 +77,10 @@ import {
   validateNIR,
   // Portugal
   validateNIF,
+  // Germany
+  validateSteuerIdNr,
+  validateVatNumber,
+  validateWidnr,
 } from "validator-tax-id";
 
 // 🇪🇸 Spain - Direct validation
@@ -86,6 +95,11 @@ validateNIR("188057512301180"); // true
 
 // 🇵🇹 Portugal - Direct validation
 validateNIF("123456789"); // true
+
+// 🇩🇪 Germany - Direct validation
+validateSteuerIdNr("86095742719"); // true
+validateVatNumber("DE136695976"); // true
+validateWidnr("136695976"); // true
 ```
 
 ### Country Auto-detect
@@ -93,19 +107,26 @@ validateNIF("123456789"); // true
 If you don't know the specific document type:
 
 ```typescript
-import { validateES, validateFR, validatePT } from "validator-tax-id";
+import {
+  validateES,
+  validateFR,
+  validatePT,
+  validateDE,
+} from "validator-tax-id";
 
 validateES("12345678Z"); // true (auto-detects DNI)
 validateES("A58818501"); // true (auto-detects CIF)
 validateFR("443061841"); // true (auto-detects SIREN)
 validatePT("123456789"); // true
+validateDE("86095742719"); // true (auto-detects SteuerIdNr)
+validateDE("DE136695976"); // true (auto-detects VAT Number)
 ```
 
 ## API Reference
 
 ### `validateIdentification(country, value)`
 
-- **country**: `CountryCode` ('es' | 'pt' | 'fr') - The ISO code of the country.
+- **country**: `CountryCode` ('es' | 'pt' | 'fr' | 'de') - The ISO code of the country.
 - **value**: `string` - The document string to validate.
 - **Returns**: `boolean` (`true` if valid, `false` otherwise).
 

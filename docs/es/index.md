@@ -22,7 +22,7 @@ features:
     details: Construida desde cero con TypeScript. Definiciones de tipos completas y autocompletado.
   - icon: 🌍
     title: Multi-País
-    details: España, Francia, Portugal y creciendo. Cada país usa algoritmos oficiales del gobierno.
+    details: España, Francia, Portugal, Alemania y creciendo. Cada país usa algoritmos oficiales del gobierno.
   - icon: 🌳
     title: Tree-Shakeable
     details: Importa solo lo que necesites. ¿validateDNI? 1KB. ¿Toda la librería? Menos de 4KB gzipped.
@@ -71,7 +71,12 @@ npm install validator-tax-id
       <div class="code-block">
 
 ```typescript
-import { validateDNI, validateSIREN, validateNIF } from "validator-tax-id";
+import {
+  validateDNI,
+  validateSIREN,
+  validateNIF,
+  validateSteuerIdNr,
+} from "validator-tax-id";
 
 // 🇪🇸 España
 validateDNI("12345678Z"); // ✅ true
@@ -81,6 +86,9 @@ validateSIREN("443061841"); // ✅ true
 
 // 🇵🇹 Portugal
 validateNIF("123456789"); // ✅ true
+
+// 🇩🇪 Alemania
+validateSteuerIdNr("86095742719"); // ✅ true
 ```
 
   </div>
@@ -140,20 +148,21 @@ validateNIF("123456789"); // ✅ true
         <span class="algo-value">Luhn + Mod 97</span>
       </div>
     </a>
-    <div class="country-card coming-soon">
+    <a href="./countries/de" class="country-card">
       <div class="card-header">
         <span class="flag">🇩🇪</span>
         <span class="code">DE</span>
       </div>
       <span class="name">Alemania</span>
       <div class="docs-list">
-        <span class="docs-label">Próximamente:</span>
-        <span class="docs-value">Steuernummer</span>
+        <span class="docs-label">Valida:</span>
+        <span class="docs-value">SteuerIdNr, VAT, W-IdNr</span>
       </div>
       <div class="algorithm">
-        <span class="coming-badge">Próximamente</span>
+        <span class="algo-label">Algoritmo:</span>
+        <span class="algo-value">ISO 7064 Mod 10,11</span>
       </div>
-    </div>
+    </a>
     <div class="country-card coming-soon">
       <div class="card-header">
         <span class="flag">🇮🇹</span>

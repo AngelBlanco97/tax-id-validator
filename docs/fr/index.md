@@ -22,7 +22,7 @@ features:
     details: Construite depuis le début avec TypeScript. Définitions de types complètes et autocomplétion.
   - icon: 🌍
     title: Multi-Pays
-    details: Espagne, France, Portugal et plus. Chaque pays utilise les algorithmes officiels du gouvernement.
+    details: Espagne, France, Portugal, Allemagne et plus. Chaque pays utilise les algorithmes officiels du gouvernement.
   - icon: 🌳
     title: Tree-Shakeable
     details: Importez uniquement ce dont vous avez besoin. validateSIREN? 1KB. Toute la bibliothèque? Moins de 4KB gzippé.
@@ -71,7 +71,12 @@ npm install validator-tax-id
       <div class="code-block">
 
 ```typescript
-import { validateDNI, validateSIREN, validateNIF } from "validator-tax-id";
+import {
+  validateDNI,
+  validateSIREN,
+  validateNIF,
+  validateSteuerIdNr,
+} from "validator-tax-id";
 
 // 🇪🇸 Espagne
 validateDNI("12345678Z"); // ✅ true
@@ -81,6 +86,9 @@ validateSIREN("443061841"); // ✅ true
 
 // 🇵🇹 Portugal
 validateNIF("123456789"); // ✅ true
+
+// 🇩🇪 Allemagne
+validateSteuerIdNr("86095742719"); // ✅ true
 ```
 
   </div>
@@ -140,20 +148,21 @@ validateNIF("123456789"); // ✅ true
         <span class="algo-value">Luhn + Mod 97</span>
       </div>
     </a>
-    <div class="country-card coming-soon">
+    <a href="./countries/de" class="country-card">
       <div class="card-header">
         <span class="flag">🇩🇪</span>
         <span class="code">DE</span>
       </div>
       <span class="name">Allemagne</span>
       <div class="docs-list">
-        <span class="docs-label">Bientôt:</span>
-        <span class="docs-value">Steuernummer</span>
+        <span class="docs-label">Valide:</span>
+        <span class="docs-value">SteuerIdNr, VAT, W-IdNr</span>
       </div>
       <div class="algorithm">
-        <span class="coming-badge">Bientôt</span>
+        <span class="algo-label">Algorithme:</span>
+        <span class="algo-value">ISO 7064 Mod 10,11</span>
       </div>
-    </div>
+    </a>
     <div class="country-card coming-soon">
       <div class="card-header">
         <span class="flag">🇮🇹</span>
